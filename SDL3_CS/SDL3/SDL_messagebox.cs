@@ -1,0 +1,26 @@
+﻿// Copyright (c) ppy Pty Ltd <contact@ppy.sh>. Licensed under the MIT Licence.
+// See the LICENCE file in the repository root for full licence text.
+
+using System;
+
+namespace SDL
+{
+    [Flags]
+    [Typedef]
+    public enum SDL_MessageBoxFlags : UInt32
+    {
+        SDL_MESSAGEBOX_ERROR = SDL3.SDL_MESSAGEBOX_ERROR,
+        SDL_MESSAGEBOX_WARNING = SDL3.SDL_MESSAGEBOX_WARNING,
+        SDL_MESSAGEBOX_INFORMATION = SDL3.SDL_MESSAGEBOX_INFORMATION,
+        SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT = SDL3.SDL_MESSAGEBOX_BUTTONS_LEFT_TO_RIGHT,
+        SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT = SDL3.SDL_MESSAGEBOX_BUTTONS_RIGHT_TO_LEFT,
+    }
+
+    [Flags]
+    [Typedef]
+    public enum SDL_MessageBoxButtonFlags : UInt32
+    {
+        SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT = SDL3.SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT,
+        SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = SDL3.SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT,
+    }
+}

@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>SDL</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <ContentWithTargetPath Include=".\Native\win-x64\SDL3.dd">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>SDL3.dll</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <ContentWithTargetPath Include=".\Native\osx-arm64\libSDL3.dylib">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>libSDL3.dylib</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference 
+              Include="..\SDL3-CS.SourceGeneration\SDL3-CS.SourceGeneration\SDL3-CS.SourceGeneration.csproj" 
+              OutputItemType="Analyzer" 
+              ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+</Project>
